@@ -9,7 +9,7 @@ module.exports = React.createClass({
 	},
 	componentWillMount: function(){
 		TopicStore.getTopics()
-		.this(function(){
+		.then(function(){
 			this.setState({
 				topics: TopicStore.topics
 			});
@@ -18,7 +18,7 @@ module.exports = React.createClass({
 	render: function(){
 		return <div className="list-group">
 			Topic List
-			{this.renderTopics}
+			{this.renderTopics()}
 		</div>
 	},
 	renderTopics: function(){
